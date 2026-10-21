@@ -150,6 +150,15 @@ impl Store {
     }
 }
 
+/// Opens a console that logs Claude Code out, then starts a fresh login.
+/// It needs its own window: login is interactive (browser sign-in).
+pub fn relogin_claude_code() -> io::Result<()> {
+    Command::new("cmd.exe")
+        .args(["/c", "start", "Claude 登录", "cmd.exe", "/k", "claude auth logout && claude auth login"])
+        .spawn()
+        .map(drop)
+}
+
 /// Force-quits Claude desktop. Matches by install path, because Claude Code
 /// (the CLI) is also called `claude.exe` and must be left alone.
 pub fn quit_claude_desktop() -> io::Result<()> {

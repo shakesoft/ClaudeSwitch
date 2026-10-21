@@ -312,7 +312,20 @@ fn accounts_page(store: &Store, tx: &Sender<Msg>) -> (Ref<StackPanel>, impl Fn(&
             });
         }
     });
-    page.children().add(quit);
+    let login = button("登录");
+    login.click({
+        let tx = tx.clone();
+        move |_, _| {
+            let _ = tx.send(Msg::Accounts(match accounts::relogin_claude_code() {
+                Ok(()) => "状态：已在新窗口中执行 claude auth logout，随后 claude auth login".to_string(),
+                Err(e) => format!("状态：无法启动登录：{e}"),
+            }));
+        }
+    });
+    let actions = row();
+    actions.children().add(quit);
+    actions.children().add(login);
+    page.children().add(actions);
     let status = muted("");
     page.children().add(status.clone());
 
