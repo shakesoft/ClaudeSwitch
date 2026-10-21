@@ -52,6 +52,7 @@ cargo test                 # 单元测试
 
 ## 注意事项
 
+- 本工具仅用于切换本人名下的多个账号，请遵守 [Anthropic 的使用条款](https://www.anthropic.com/legal)
 - 第一次切换账号前，建议先手动备份 `%APPDATA%\Claude`
 - 账号切换只换 Claude 桌面版的数据；Claude Code 的登录信息在 `%USERPROFILE%\.claude` 中，不随之切换
 - "登录"按钮会让本机所有 Claude Code 会话退出登录
