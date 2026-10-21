@@ -1,6 +1,6 @@
 # Claude 账号切换器
 
-用 Rust + [FerroUI](https://github.com/wieslawsoltes/FerroUI) 写的 Windows 小工具：在多个 Claude 桌面版账号之间切换，并附带通用的 VPN 断线保护和网络泄漏自查。
+用 Rust + [Slint](https://github.com/slint-ui/slint) 写的 Windows 小工具：在多个 Claude 桌面版账号之间切换，并附带通用的 VPN 断线保护和网络泄漏自查。
 
 ## 功能
 
@@ -22,11 +22,9 @@
 - Windows 10 / 11
 - Rust 1.89 或更高
 - Visual Studio Build Tools（"使用 C++ 的桌面开发"工作负载）
-- LLVM（编译依赖需要 libclang，路径已在 `.cargo/config.toml` 中设为 `C:\Program Files\LLVM\bin`）
 
 ```powershell
 winget install Microsoft.VisualStudio.2022.BuildTools --override "--wait --passive --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
-winget install LLVM.LLVM
 ```
 
 ## 编译与运行

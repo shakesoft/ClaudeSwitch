@@ -4,4 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-ferroui = "=0.3.0"
+slint = "1.18"
+tray-icon = "0.26"
+# Already pulled in by slint; used to decode the tray/window icon.
+image = { version = "0.25", default-features = false, features = ["png"] }
